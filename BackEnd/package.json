@@ -1,0 +1,26 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "app json",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "cors": "^2.8.4",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "jwt-simple": "^0.5.1",
+    "mysql": "^2.10.2",
+    "passport": "^0.4.0",
+    "validatorjs": "^3.13.6",
+    "wait.for": "^0.6.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node Controller1.js"
+  },
+  "keywords": [
+    "fun"
+  ],
+  "author": "me",
+  "license": "ISC"
+}
