@@ -1,0 +1,61 @@
+{ 
+ "Restaurant":
+    [{
+      Name: "Halawa",
+      Menu: 
+        {
+        
+        Sushi: 
+                [
+                  {Name: 'Makai',
+                   Price: 140,},
+                  {Name: 'Makai',
+                    Price: 140,}
+                ],
+        Macarooni: 
+                  [
+                    {Name: 'Pasta',
+                      Price: 140,},
+                     {Name: 'Macarooni Red',
+                        Price: 140,}
+                  ],
+        VegetableSoup: 
+                    [
+                  {Name: 'Shorbet 5odar',
+                   Price: 140,},
+                   {Name: 'Kryptonite',
+                    Price: 140,}
+                    ]
+        
+       },
+      Images: ["assets/img/das.jpg","assets/img/das.jpg","assets/img/das.jpg","assets/img/das.jpg"]
+    }],
+  "Reviews": 
+      [
+      {
+        id: 1,
+        name: "Osama Nabih",
+        Avatar: "assets/img/ian-avatar.png",
+        Review: "This place is a dick",
+        likes: 32,
+        CommentNum: 2
+
+      },
+        {
+        id: 1,
+        name: "Omar Wagih",
+        Avatar: "assets/img/ian-avatar.png",
+        Review: "I had the most amazing time here, the pasta was really good, the staff were friendly, over all such an amazing experience!",
+        likes: 32,
+        CommentNum: 32
+      },
+      {
+        id: 1,
+        name: "Walid Ashraf",
+        Avatar: "assets/img/ian-avatar.png",
+        Review: "This sucks",
+          likes: 32,
+          CommentNum: 2
+      }
+      ] 
+}
