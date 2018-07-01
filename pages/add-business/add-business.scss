@@ -1,0 +1,22 @@
+page-add-business {
+.MediumGrey
+{
+ background-color:#f3f3f3 !important;
+}
+ion-label { /* WebKit, Blink, Edge */
+    color:    darkslategray !important;
+}
+ion-item
+{
+    background-color:#f3f3f3 !important;
+}
+p
+{
+    color: darkslategray !important;
+    font-size:1.2rem !important;
+}
+ion-select
+{
+    max-width:80%;
+}
+}

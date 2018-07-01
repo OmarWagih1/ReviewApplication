@@ -1,0 +1,36 @@
+page-home {
+.menuSubTitle {
+
+        font-size: 0.6em;
+        float:left;
+        display: block;
+        clear: both;
+    }
+    .ionsearchbar {
+        width: 80%;
+        margin: 0 auto;  
+        font-size:5px !important;
+        background-color: #55658c !important;
+    }
+    #upper
+    {
+       background-color: #55658c; 
+    }
+    .toolbar-background {
+  background-color: #55658c;
+  border-width:0;
+  }
+  .toolbar-ios
+  {
+      border-width:0;
+  }
+  button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+}

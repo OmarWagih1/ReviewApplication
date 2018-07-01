@@ -1,0 +1,41 @@
+<!--
+  Generated template for the ReviewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{Name}}</ion-title>
+    <ion-buttons end>
+      <button (click)="Submit()" id='tick' disabled='true' ion-button icon-only color="royal">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content  no-padding style='background-color:#f3f3f3'>
+  <div style=' display:flex;
+    align-items:center;'>
+                <img padding style='width:120px; height:120px;' [src]="Image"> <!-- i want the picture to float left and the location to float right -->             
+                <fieldset style='text-align: center; margin-left:5%;' class="rating" >
+                    <input (click) = "AddRatings(5)" type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5"></label>
+                    <input (click) = "AddRatings(4.5)" type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half"></label>
+                    <input (click) = "AddRatings(4)" type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4"></label>
+                    <input (click) = "AddRatings(3.5)" type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half"></label>
+                    <input (click) = "AddRatings(3)" type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3"></label>
+                    <input (click) = "AddRatings(2.5)" type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half"></label>
+                    <input (click) = "AddRatings(2)" type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2"></label>
+                    <input (click) = "AddRatings(1.5)" type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half"></label>
+                    <input (click) = "AddRatings(1)" type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1"></label>
+                    <input (click) = "AddRatings(0.5)" type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf"></label>
+                </fieldset>
+  </div>
+  <ion-item style='margin-left:3%;' no-padding>
+  <ion-textarea class='item-inner'  [(ngModel)]="Review" fz-elastic placeholder='Share your experience with us! Make sure your review is constructive and helpful.'></ion-textarea>
+  </ion-item>
+</ion-content>

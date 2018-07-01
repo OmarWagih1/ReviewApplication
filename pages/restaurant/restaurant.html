@@ -1,0 +1,161 @@
+<!--
+  Generated template for the RestaurantPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header showWhen="ios" color = blue>
+	<ion-navbar color = light>
+	</ion-navbar>
+</ion-header>
+<ion-content  style='margin-top:0;background-color:#f3f3f3' fullscreen="true">
+	<ion-slides style='max-height:50%;'>
+		<ion-slide>
+			<img style="filter:blur(1px)"[src]='Restaurant["Image"]'>
+		</ion-slide>
+		<ion-slide>
+			<img style="filter:blur(1px)"[src]='Restaurant["Image"]'>        
+		</ion-slide>
+	</ion-slides>
+	<h3  padding-left style='color:antiquewhite; margin-top:-10%; z-index:1; position: absolute;'>{{Restaurant['Name']}}</h3>
+	<div padding>
+		<ion-segment [(ngModel)]="Stuff">
+		<ion-segment-button value="Reviews">
+			Reviews
+		</ion-segment-button>
+		<ion-segment-button value="Menu">
+			{{MenuName}}
+		</ion-segment-button>
+		<ion-segment-button value="information">
+			Information
+		</ion-segment-button>
+		</ion-segment>
+	</div>
+	<div [ngSwitch]="Stuff">
+		<div *ngSwitchCase="'Reviews'">
+			<div *ngFor="let item of Restaurant.Reviews">
+				<ion-card>
+					<ion-item>
+						<ion-avatar  item-start>
+							<img class ='profilepicsize' [src]='item["Avatar"]'>
+						</ion-avatar>
+						<h2>{{item.FirstName}} {{item.LastName}}</h2>
+					</ion-item>
+					<ion-card-content>
+						<p>{{item.Content}}</p>
+					</ion-card-content>
+					<ion-row>
+						<ion-col>
+							<button (click)= "LikeThis(UserId,item.ReviewId,PlaceId)"ion-button color="dark" icon-left clear >
+								<ion-icon ios="md-thumbs-up" md="md-thumbs-up"></ion-icon>
+								<ion-note>
+									{{item.likes}}
+								</ion-note>
+							</button>
+						</ion-col>
+						<ion-col>
+							<button (click) = "GoComment(item.ReviewId)" ion-button color="dark" icon-left clear>
+								<ion-icon ios="md-chatboxes" md="md-chatboxes"></ion-icon>
+								<ion-note>
+								</ion-note>
+							</button>
+						</ion-col>
+						<ion-col style='margin-top:5%'>
+							
+						</ion-col>
+					</ion-row>
+				</ion-card>
+			</div>
+		</div>
+		<div *ngSwitchCase ="'Menu'">
+			 
+			<ion-card *ngIf="Restaurant.Menu !== undefined">
+				<ion-item-group>
+					<div *ngFor="let item of MenuTypes">
+						<ion-item-divider color="light">{{item}}</ion-item-divider>
+						<div *ngFor = "let menuItem of Restaurant.Menu[item]">
+							<ion-item>
+								<p>{{menuItem.ItemName}}</p>
+								<p float-right>{{menuItem.ItemPrice}}</p>
+							</ion-item>
+						</div>
+					</div>
+				</ion-item-group>
+			</ion-card>
+			<ion-card *ngIf="Restaurant.Cinema !== undefined">
+				<ion-item-group>
+					<div *ngFor="let item of MenuTypes">
+						<ion-item-divider color="light" *ngIf= "Restaurant['Cinema'][item][0] !== undefined" >{{Restaurant['Cinema'][item][0].ShowTimeNumber}}</ion-item-divider>
+						<div *ngFor = "let items of Restaurant['Cinema'][item]">
+							<ion-item>
+								<p>{{items.FilmName}}</p>
+								<p float-right>{{items.Price}}
+									<br>
+									3D: {{items.ThreeD}}
+								</p>
+							</ion-item>
+						</div>
+					</div>
+				</ion-item-group>
+			</ion-card>
+			<ion-card *ngIf="Restaurant.Rooms !== undefined">
+				<ion-item-group>
+					<div *ngFor="let item of MenuTypes">
+						<ion-item-divider color="light"> Room: {{calc(item)}}</ion-item-divider>
+						<ion-item>
+								<p>Per Hour:</p>
+								<p float-right>{{Restaurant['Rooms'][item].PerHour}}
+								</p>
+								<br>
+								<p>Per Person:</p>
+								<p float-right>{{Restaurant['Rooms'][item].PerPerson}}
+								</p>
+								<br>
+								<p>Fits:</p>
+								<p float-right>{{Restaurant['Rooms'][item].PeopletoFit}} Persons
+								</p>
+								<br>
+								<p>Air conditioned:</p>
+								<p float-right>{{Restaurant['Rooms'][item].AC}}
+								</p>
+								<br>
+							</ion-item>
+					</div>
+				</ion-item-group>
+			</ion-card>
+		</div>
+		<div *ngSwitchCase ="'information'">
+			<ion-card>
+				<ion-list no-lines>
+					<ion-item  text-wrap>
+						<h2 style="font-weight:bold">Description</h2>
+						<ion-icon name="document" item-start ></ion-icon>
+						{{Restaurant['DescriptionText']}}
+					</ion-item>
+					<ion-item>
+						<h2 style="font-weight:bold">Address</h2>
+						<ion-icon name="compass" item-start></ion-icon>
+						{{Restaurant['StreetAddress']}}
+						<br>
+						{{Restaurant['District']}},{{Restaurant['Governorate']}}
+					</ion-item>
+					<ion-item>
+						<h2 style="font-weight:bold">Phone</h2>
+						<ion-icon name="call" item-start></ion-icon>
+						{{Restaurant['Telephone']}}
+					</ion-item>
+					<ion-item>
+						<h2 style="font-weight:bold">Website</h2>
+						<ion-icon name="link" item-start></ion-icon>
+						{{Restaurant['Links']}}
+					</ion-item>
+				</ion-list>
+			</ion-card>
+		</div>
+	</div>
+		<ion-fab bottom right *ngIf="Stuff==='Reviews' && UserId !== undefined">
+  		  <button ion-fab mini color='dark' (click)='openAddPager()'><ion-icon name="add"></ion-icon></button>
+ 		 </ion-fab>
+
+	
+</ion-content>

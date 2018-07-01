@@ -1,0 +1,30 @@
+<!--
+  Generated template for the LoginsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content class='MediumPurple' padding>
+
+  <div class='MediumPurple' style='margin-top:50%'>
+    <ion-item class='MediumPurple'>
+    <ion-label floating style='color:antiquewhite'>Email</ion-label>
+    <ion-input type="text" [(ngModel)] = "Email" ></ion-input>
+  </ion-item>
+  <ion-item class='MediumPurple'>
+    <ion-label floating style='color:antiquewhite' >Password</ion-label>
+    <ion-input type="password"  [(ngModel)] = "Password"></ion-input>
+  </ion-item>   
+  </div>
+  <button ion-button full (click)="LogIn()" style='color:antiquewhite' clear>Login</button>
+</ion-content>
+
+
+<ion-footer no-border>
+  <ion-toolbar transparent style='text-align: center'>
+  <p (click) = "RegisterPage()">Don't have an account? Register here!</p>
+  <p (click) = "GoToHome()">Skip Login</p>
+  </ion-toolbar>
+</ion-footer>

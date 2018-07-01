@@ -1,0 +1,60 @@
+<ion-header showWhen="ios" color = blue>
+	<ion-navbar color = light>
+	</ion-navbar>
+</ion-header>
+
+
+
+<ion-content style='background-color:#f3f3f3'>
+<h2>This works, but you have to insert some requests</h2>
+ <ion-list>
+      <div *ngFor="let item of Places">
+      <ion-card>
+				<ion-list no-lines>
+          <ion-item  text-wrap>
+						<h2 style="font-weight:bold">Name and type</h2>
+						<ion-icon name="at" item-start ></ion-icon>
+                {{item.PlaceName}},{{item.Placetype}}
+					</ion-item>
+					<ion-item  text-wrap>
+						<h2 style="font-weight:bold">Description</h2>
+						<ion-icon name="document" item-start ></ion-icon>
+                {{item.DescriptionText}}
+                -------------------------
+                {{item.RequestText}}
+                -------------------------
+                {{item.LegalProof}}
+					</ion-item>
+					<ion-item>
+						<h2 style="font-weight:bold">Address</h2>
+						<ion-icon name="compass" item-start></ion-icon>
+						{{item.StreetAddress}}
+						<br>
+						{{item.District}},{{item.Governorate}}
+					</ion-item>
+					<ion-item>
+						<h2 style="font-weight:bold">Phone</h2>
+						<ion-icon name="call" item-start></ion-icon>
+						{{item.Telephone}}
+					</ion-item>
+					<ion-item>
+						<h2 style="font-weight:bold">Website</h2>
+						<ion-icon name="link" item-start></ion-icon>
+						{{item.Links}}
+					</ion-item>
+          <ion-item>
+					      <button (click) = "AcceptOrDeny(1,item.RequestID)" clear ion-button icon-only color="dark">
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <button (click) = "AcceptOrDeny(1,item.RequestID)" clear ion-button icon-only color="dark">
+        <ion-icon name="close"></ion-icon>
+      </button>
+               
+					</ion-item>
+				</ion-list>
+			</ion-card>
+ </div>
+ </ion-list>
+
+</ion-content>
+

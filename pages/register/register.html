@@ -1,0 +1,41 @@
+
+
+<ion-content class='MediumPurple' padding>
+  <div  class='MediumPurple'  style='margin-top:50%'>
+    <form [formGroup]="slideOneForm">
+    <ion-item >
+    <ion-label floating style='color:antiquewhite'>Email</ion-label>
+    <ion-input type="text" formControlName="Email"  [(ngModel)]="Email"></ion-input>
+  </ion-item>
+      <ion-item *ngIf="!slideOneForm.controls.Email.valid  && (slideOneForm.controls.Email.dirty || SubmitAttempt)">
+    <p  style='color:antiquewhite'>Please enter a valid Email.</p>
+    </ion-item>
+  <ion-item >
+    <ion-label floating style='color:antiquewhite' >Password</ion-label>
+    <ion-input type="password"  formControlName="Password" [(ngModel)]="Password"></ion-input>
+  </ion-item>  
+       <ion-item class="item item-text-wrap"*ngIf="!slideOneForm.controls.Password.valid  && (SubmitAttempt)">
+    <p style='color:antiquewhite'>A valid Password is at least 6 characters and has a digit.</p>
+    </ion-item>
+  <ion-item>
+    <ion-label floating style='color:antiquewhite'>First Name</ion-label>
+    <ion-input type="text" formControlName="FirstName"  [(ngModel)]="FirstName"></ion-input>
+  </ion-item>
+   <ion-item *ngIf="!slideOneForm.controls.FirstName.valid  && (slideOneForm.controls.FirstName.dirty || SubmitAttempt)">
+    <p  style='color:antiquewhite'>Please enter a valid first name.</p>
+    </ion-item>
+  <ion-item >
+    <ion-label floating style='color:antiquewhite'>Last Name</ion-label>
+    <ion-input type="text" formControlName="LastName" [(ngModel)]="LastName"></ion-input>
+  </ion-item> 
+   <ion-item *ngIf="!slideOneForm.controls.LastName.valid  && (slideOneForm.controls.LastName.dirty || SubmitAttempt)">
+    <p  style='color:antiquewhite'>Please enter a valid last name.</p>
+    </ion-item>
+    </form>
+  </div>
+      <ion-item *ngIf="ErrorMessage">
+    <p  style='color:antiquewhite'>There seems to be an error.</p>
+    </ion-item>
+  <button ion-button full style='color:antiquewhite' (click)="Register()" clear>Register and Sign in</button>
+</ion-content>
+
